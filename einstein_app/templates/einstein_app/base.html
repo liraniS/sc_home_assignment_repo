@@ -21,7 +21,7 @@
               <ul class="navbar-nav mr-auto nav nav-tabs pull-right" style="float: right;">
                 {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link active" href=""><strong>Hello, {{ user.first_name }}</strong></a>
+                    <a class="nav-link active" href=""><strong>Hello, {{ user.username }}</strong></a>
                   </li>
                 {% endif %}
                 <li class="nav-item">

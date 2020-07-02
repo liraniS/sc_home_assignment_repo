@@ -6,12 +6,15 @@ from .models import *
 
 class IndexView(generic.ListView):
     template_name = 'einstein_app/home.html'
-    context_object_name = 'my_lists'
+    context_object_name = 'categories'
 
     def get_queryset(self):
         categories_list = Category.objects.all()
-        courses_list = Course.objects.all()[:6]
+        courses_list = Course.objects.all()
 
-        return {'categories_list':categories_list,
-                'courses_list':courses_list,
-            }
+        category_dict = {}
+        for current_category in categories_list:
+            current_courses =  [course for course in courses_list if course.category == current_category]
+            category_dict[current_category.name] = current_courses[:6]
+        
+        return category_dict

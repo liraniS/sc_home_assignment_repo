@@ -1,0 +1,31 @@
+#main-logo {
+    object-fit: scale-down;
+}
+
+.grid-container-6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: ". . ." ". . .";
+  }
+
+@media only screen and (max-width: 768px) {
+    .grid-container-6 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 1px 1px;
+        grid-template-areas: ". ." ". ." ". .";
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .grid-container-6 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1px 1px;
+        grid-template-areas: "." ".";
+    }
+}

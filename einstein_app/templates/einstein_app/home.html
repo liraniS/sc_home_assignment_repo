@@ -2,28 +2,28 @@
 
 {% block content %}
     <h2>Courses by Category</h2>
-    
-            {% if my_lists.categories_list %}
-                {% for category in my_lists.categories_list %}
+            {% if categories %}
+                {% for category, current_courses in categories.items %}
                     <div>
-                        <h3>{{ category.name }}</h3>
+                        <hr>
+                        <h3>{{ category }}</h3>
+                        <hr>
+                        <div class="grid-container-6">
+                            {% if current_courses %}
+                                {% for course in current_courses %}
+                                    <div>
+                                        <h3>{{ course.title }}</h3>
+                                        <p>by {{ course.by_user }}</p>
+                                    </div>                  
+                                {% endfor %}
+                            {% else %}
+                                <p>No Available Courses.</p>
+                            {% endif %}  
+                        </div> 
                     </div>                  
                 {% endfor %}    
             {% else %}
-            <p>No Available Categories.</p>
+                <p>No Available Categories.</p>
             {% endif %}
-
-
-            <hr><hr>
-
-
-            {% if my_lists.courses_list %}
-                {% for course in my_lists.courses_list %}
-                    <div>
-                        <h3>{{ course.title }}</h3>
-                    </div>                  
-                {% endfor %}    
-            {% else %}
-            <p>No Available Courses.</p>
-            {% endif %}
+            
 {% endblock %}
