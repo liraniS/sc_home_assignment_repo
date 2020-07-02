@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Einstein - SC home assignment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href={% static 'css/style.css' %}>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <a class="navbar-brand" href="#"><img id="main_logo" src={% static "images/logo.png" %}></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto nav nav-tabs pull-right" style="float: right;">
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link active" href=""><strong>Hello, {{ user.first_name }}</strong></a>
+                  </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">About Us</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Contact Us</a>
+                </li>
+          
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Logout</a>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Sign Up</a>
+                  </li>
+                {% endif %}
+    
+              </ul>
+            </div>
+        </nav>
+    {% block content %}
+    {% endblock %}
+
+        <footer>
+            <hr>
+            --- Einstein home assignment by Liran Sharabi --- 
+        </footer>
+    
+    </body>
+</html>
