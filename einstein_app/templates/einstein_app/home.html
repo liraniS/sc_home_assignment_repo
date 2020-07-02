@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Courses by Category</h2>
-
+    
             {% if my_lists.categories_list %}
                 {% for category in my_lists.categories_list %}
                     <div>
@@ -11,5 +11,19 @@
                 {% endfor %}    
             {% else %}
             <p>No Available Categories.</p>
+            {% endif %}
+
+
+            <hr><hr>
+
+
+            {% if my_lists.courses_list %}
+                {% for course in my_lists.courses_list %}
+                    <div>
+                        <h3>{{ course.title }}</h3>
+                    </div>                  
+                {% endfor %}    
+            {% else %}
+            <p>No Available Courses.</p>
             {% endif %}
 {% endblock %}

@@ -3,12 +3,13 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Course(models.Model):
     title = models.CharField(max_length=80)
     description = models.CharField(max_length=320, null=True)
     category = models.ForeignKey('Category', blank=True, null=True, related_name='course_category', on_delete=models.SET_NULL)
     by_user = models.ForeignKey(User, blank=True, null=True, related_name='by_user', on_delete=models.SET_NULL)
-    enrolled_users = models.ManyToManyField(User, blank=True, null=True, related_name='enrolled_users')
+    enrolled_users = models.ManyToManyField(User, blank=True, related_name='enrolled_users')
     creation_date = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
