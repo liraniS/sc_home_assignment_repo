@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# added for heroku
+PROJECT_ROOT = BASE_DIR
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,8 +28,7 @@ SECRET_KEY = '4s!ob4&&)$e8k-8bxm(bjzvoja0pgve22uz!y0i63@b-%9lv5d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['sc-home-assignment.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
