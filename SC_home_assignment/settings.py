@@ -15,9 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# added for heroku
-PROJECT_ROOT = BASE_DIR
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# Make Heroku find project and static roots
+STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -76,9 +75,18 @@ WSGI_APPLICATION = 'SC_home_assignment.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'heroku_db': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd7f00omqq71977',
+        'USER': 'sqjzvrjsnqgizs',
+        'PASSWORD': 'de019b0c14f8ad7733fcaa004ec27f114cb782fbc7d2273c63b5db24e3d0e28b',
+        'HOST': 'ec2-35-169-254-43.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
