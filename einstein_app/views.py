@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from .models import *
 
@@ -18,3 +18,6 @@ class IndexView(generic.ListView):
             category_dict[current_category.name] = current_courses[:6]
         
         return category_dict
+
+def hebrewVer(request):
+    return render(request, 'einstein_app/hebrew.html')

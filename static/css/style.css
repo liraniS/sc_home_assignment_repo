@@ -1,9 +1,17 @@
 h2 {
     text-align: center;
+    color: rgb(0, 87, 209);
+    font-weight: bold;
 }
 
-#main-logo {
-    object-fit: scale-down;
+#main_logo {
+    max-height: 60px;
+}
+
+.hero img {
+    width: 100vw;
+    height: 80vh;
+    margin-bottom: 10vh;
 }
 
 .category-title {
@@ -52,7 +60,7 @@ h2 {
         display: grid;
         grid-template-columns: 0.8fr;
         grid-template-rows: 1fr;
-        gap: 1px 1px;
+        gap: 30px 2px;
         grid-template-areas: "." ".";
         justify-content: center;
     }
@@ -63,4 +71,5 @@ h2 {
         grid-template-rows: 1.2fr 0.8fr;
         gap: 1px 1px;
         grid-template-areas: "." ".";
+    }
 }

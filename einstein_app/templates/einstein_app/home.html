@@ -1,37 +1,41 @@
 {% extends 'einstein_app/base.html' %}
 
 {% block content %}
+{% load static %}
+    <div class="hero">
+        <img src={% static "images/love_to_learn.jpg" %} alt="hero pic">
+    </div>
     <h2>Courses by Category</h2>
     <br>
-            {% if categories %}
-                {% for category, current_courses in categories.items %}
-                    <div>
-                        <br>
-                        <h3 class="category-title"><i class="fas fa-layer-group"></i>  {{ category }}</h3>
-                        <hr>
-                        <br>
-                        <div class="grid-container-max6">
-                            {% if current_courses %}
-                                {% for course in current_courses %}
-                                    <div class="grid-container-card">
-                                        <div class="course-picture">
-                                            <img src="https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="course picture">
-                                        </div>
-                                        <div class="course-text">
-                                            <h3>{{ course.title }}</h3>
-                                            <p>by {{ course.by_user }}</p>
-                                            <p><i class="fas fa-plus-circle"></i> Read More</p>
-                                        </div>
-                                    </div>                  
-                                {% endfor %}
-                            {% else %}
-                                <p>No Available Courses.</p>
-                            {% endif %}  
-                        </div> 
-                    </div>                  
-                {% endfor %}    
-            {% else %}
-                <p>No Available Categories.</p>
-            {% endif %}
-            
+        {% if categories %}
+            {% for category, current_courses in categories.items %}
+                <div>
+                    <br>
+                    <br>
+                    <h3 class="category-title"><i class="fas fa-layer-group"></i>  {{ category }}</h3>
+                    <hr>
+                    <br>
+                    <div class="grid-container-max6">
+                        {% if current_courses %}
+                            {% for course in current_courses %}
+                                <div class="grid-container-card">
+                                    <div class="course-picture">
+                                        <img src="https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="course picture">
+                                    </div>
+                                    <div class="course-text">
+                                        <h3>{{ course.title }}</h3>
+                                        <p>by {{ course.by_user }}</p>
+                                        <p><i class="fas fa-plus-circle"></i> Read More</p>
+                                    </div>
+                                </div>                  
+                            {% endfor %}
+                        {% else %}
+                            <p>No Available Courses.</p>
+                        {% endif %}  
+                    </div> 
+                </div>                  
+            {% endfor %}    
+        {% else %}
+            <p>No Available Categories.</p>
+        {% endif %}      
 {% endblock %}

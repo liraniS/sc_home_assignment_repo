@@ -13,53 +13,51 @@
         <link rel="stylesheet" type="text/css" href={% static 'css/style.css' %}>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a class="navbar-brand" href="#"><img id="main_logo" src={% static "images/logo.png" %}></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto nav nav-tabs pull-right" style="float: right;">
-                {% if user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="nav-link active" href=""><strong>Hello, {{ user.username }}</strong></a>
-                  </li>
-                {% endif %}
-                <li class="nav-item">
-                  <a class="nav-link" href="">Home</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#"><img id="main_logo" src={% static "images/logo.png" %}></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto nav nav-tabs pull-right" style="float: right;">
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link active" href=""><strong>Hello, {{ user.username }}</strong></a>
+              </li>
+            {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'einstein_app:home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="">About Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">About Us</a>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="">Contact Us</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Contact Us</a>
+              </li>
           
-                {% if user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="">Logout</a>
-                  </li>
-                {% else %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="">Login</a>
-                  </li>
-                  {% endif %}
-                  <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fas fa-globe"> עב</i>
-                    </a>
-                  </li>
-                
-    
-              </ul>
-            </div>
-        </nav>
-    {% block content %}
-    {% endblock %}
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="">Login</a>
+                </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'einstein_app:hebrew' %}"><i class="fas fa-globe"> עב</i>
+                </a>
+              </li>
+          </ul>
+        </div>
+      </nav>
 
-        <footer>
-            <hr>
-            --- Einstein home assignment by Liran Sharabi --- 
-        </footer>
-    
+      {% block content %}
+      {% endblock %}
+        
+      <footer>
+        <hr>
+        --- Einstein home assignment by Liran Sharabi --- 
+      </footer>
     </body>
 </html>
